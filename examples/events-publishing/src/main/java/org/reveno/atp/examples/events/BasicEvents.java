@@ -20,6 +20,8 @@ public class BasicEvents {
     public static final double PRECISION = 10000;
 
     public static void main(String[] args) {
+        args = new String[1];
+        args[0] ="channel_BasicEvents";
         Reveno reveno = new Engine(args[0]);
         init(reveno);
         reveno.startup();

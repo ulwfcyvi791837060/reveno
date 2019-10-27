@@ -17,11 +17,13 @@ import static org.reveno.atp.examples.events.BasicEvents.*;
  * pool, thus with no ordering guarantees. After events executes successfully, Reveno
  * journals that fact, so on replay they will not be fired again.
  */
-public class AsyncEvents {
+public class AsyncEvents { //异步事件
 
     protected static final AtomicLong counter = new AtomicLong();
 
     public static void main(String[] args) {
+        args = new String[1];
+        args[0] ="channel_AsyncEvents";
         Reveno reveno = new Engine(args[0]);
         init(reveno);
         reveno.startup();

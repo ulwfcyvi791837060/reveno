@@ -32,6 +32,10 @@ import java.util.stream.IntStream;
 
 public class Tests extends RevenoBaseTest {
 
+    /**
+     * 测试基本 重播使用
+     * @throws Exception
+     */
     @Test
     public void testBasic() throws Exception {
         Reveno reveno = createEngine();
@@ -59,6 +63,10 @@ public class Tests extends RevenoBaseTest {
         reveno.shutdown();
     }
 
+    /**
+     * 测试异步处理程序
+     * @throws Exception
+     */
     @Test
     public void testAsyncHandlers() throws Exception {
         Reveno reveno = createEngine();
@@ -71,6 +79,10 @@ public class Tests extends RevenoBaseTest {
         reveno.shutdown();
     }
 
+    /**
+     * 测试异常事件处理程序
+     * @throws Exception
+     */
     @Test
     public void testExceptionalEventHandler() throws Exception {
         Reveno reveno = createEngine();
@@ -100,6 +112,10 @@ public class Tests extends RevenoBaseTest {
         reveno.shutdown();
     }
 
+    /**
+     * 测试异常异步事件处理程序
+     * @throws Exception
+     */
     @Test
     public void testExceptionalAsyncEventHandler() throws Exception {
         TestRevenoEngine reveno = createEngine();
@@ -127,6 +143,10 @@ public class Tests extends RevenoBaseTest {
         reveno.shutdown();
     }
 
+    /**
+     * 测试批次
+     * @throws Exception
+     */
     @Test
     public void testBatch() throws Exception {
         Reveno reveno = createEngine();
@@ -145,6 +165,10 @@ public class Tests extends RevenoBaseTest {
         reveno.shutdown();
     }
 
+    /**
+     * 测试重播
+     * @throws Exception
+     */
     @Test
     public void testReplay() throws Exception {
         testBasic();
@@ -163,6 +187,10 @@ public class Tests extends RevenoBaseTest {
         reveno.shutdown();
     }
 
+    /**
+     * 测试批量重播
+     * @throws Exception
+     */
     @Test
     public void testBatchReplay() throws Exception {
         testBatch();
@@ -186,6 +214,10 @@ public class Tests extends RevenoBaseTest {
         reveno.shutdown();
     }
 
+    /**
+     * 测试平行滚动
+     * @throws Exception
+     */
     @Test
     public void testParallelRolling() throws Exception {
         final boolean[] stop = {false};
@@ -227,6 +259,10 @@ public class Tests extends RevenoBaseTest {
         revenoRestarted.shutdown();
     }
 
+    /**
+     * 使用补偿动作测试交易
+     * @throws Exception
+     */
     @Test
     public void testTransactionWithCompensatingActions() throws Exception {
         if (modelType != ModelType.MUTABLE) {

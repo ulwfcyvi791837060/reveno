@@ -29,12 +29,15 @@ public class DefaultSystemStateRestorer implements SystemStateRestorer {
     }
 
     /**
+     * 读取所有日志，并将所有以前的系统模式状态
+     * 从它们还原到给定的存储库中。另外，重新发布由于故障，中止等原因未发送的所有事件。
      * Reads all journals and restores all previous system mode state from them
      * into the given repository. Also, re-publish all events that were not sent
      * by the reason of failure, abortion, etc.
      *
      * @param repository into which latest state of model will be loaded
      * @return information about last system state, such as last transactionId, etc.
+     * 恢复
      */
     @Override
     public SystemState restore(long fromVersion, TxRepository repository) {
@@ -46,7 +49,9 @@ public class DefaultSystemStateRestorer implements SystemStateRestorer {
                 EventsCommitInfo e = eventsContext.serializer().deserialize(eventsContext.eventsCommitBuilder(), b);
                 eventBus.processNextEvent(e);
             }, JournalType.EVENTS);
+            //默认系统状态还原器
             processor.process(fromVersion, b -> {
+                //反序列化
                 TransactionCommitInfo tx = workflowContext.serializer().deserialize(workflowContext.transactionCommitBuilder(), b);
                 if (tx.transactionId() > transactionId[0] || tx.transactionId() == snapshotTransactionId) {
                     transactionId[0] = tx.transactionId();

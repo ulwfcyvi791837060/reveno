@@ -26,9 +26,12 @@ public class SimpleBankingAccount {
     }
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {
+        args = new String[1];
+        args[0] ="channel_SimpleBankingAccount";
         Reveno reveno = init(args[0]);
         reveno.startup();
 
+        //执行同步
         long id = reveno.executeSync(new CreateAccount("John", Currency.getInstance("EUR")));
         reveno.executeSync(new AddToBalanceCommand(id, 10000, Currency.getInstance("USD")));
 

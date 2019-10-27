@@ -16,8 +16,11 @@ public class SnapshottingExample {
     public static final BigDecimal PRECISION_BD = new BigDecimal(PRECISION);
 
     public static void main(String[] args) throws Exception {
-        //System.setProperty("protostuff.runtime.collection_schema_on_repeated_fields", "true");
 
+        //重复字段上的收集模式
+        //System.setProperty("protostuff.runtime.collection_schema_on_repeated_fields", "true");
+        args = new String[1];
+        args[0] ="channel_SnapshottingExample";
         Reveno reveno = initReveno(args);
         reveno.startup();
 
@@ -29,14 +32,15 @@ public class SnapshottingExample {
 
         reveno.shutdown();
 
+        // 我们检查一下快照是否已完成
         /// We check to see that snapshot was actually done
-        System.out.println("Snapshot file: " + FileUtils.findFile(args[0], "snp-"));
+        System.out.println("我们检查一下快照是否已完成 Snapshot file: " + FileUtils.findFile(args[0], "snp-"));
 
         reveno = initReveno(args);
         reveno.startup();
 
-        System.out.println("Traders: " + reveno.query().select(TraderView.class).size());
-        System.out.println("Orders: " + reveno.query().select(OrderView.class).size());
+        System.out.println("query() Traders: " + reveno.query().select(TraderView.class).size());
+        System.out.println("query() Orders: " + reveno.query().select(OrderView.class).size());
 
         reveno.shutdown();
 

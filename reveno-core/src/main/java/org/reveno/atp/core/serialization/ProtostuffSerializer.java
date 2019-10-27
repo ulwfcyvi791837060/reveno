@@ -107,6 +107,7 @@ public class ProtostuffSerializer implements RepositoryDataSerializer, Transacti
         if (transactionId == 0 && time == 0) {
             throw new BufferOutOfBoundsException();
         }
+        //反序列化对象
         List<Object> commits = deserializeObjects(buffer);
 
         return builder.create().transactionId(transactionId)
@@ -201,12 +202,14 @@ public class ProtostuffSerializer implements RepositoryDataSerializer, Transacti
         List<Object> commits = new ArrayList<>(len);
 
         for (int i = 0; i < len; i++) {
+            //反序列化对象
             commits.add(i, deserializeObject(buffer));
         }
         return commits;
     }
 
     @SuppressWarnings("unchecked")
+    @Override
     public Object deserializeObject(Buffer buffer) {
         Input input = new ZeroCopyBufferInput(buffer, true);
         byte type = buffer.readByte();

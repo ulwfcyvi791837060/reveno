@@ -69,6 +69,8 @@ public class SerializersChain implements TransactionInfoSerializer {
         tryTo(buffer, serializer.get().with(buffer, info));
     }
 
+    //
+
     @Override
     public TransactionCommitInfo deserialize(Builder builder, Buffer buffer) {
         return tryToD(buffer, s -> s.deserialize(builder, buffer));
@@ -115,7 +117,7 @@ public class SerializersChain implements TransactionInfoSerializer {
                 if (accept(buffer, c, transactionSerializers.get(i)))
                     return;
             }
-            throw new RuntimeException("All serializers failed to serialize.");
+            throw new RuntimeException("所有序列化程序均未能序列化。 All serializers failed to serialize.");
         }
     }
 

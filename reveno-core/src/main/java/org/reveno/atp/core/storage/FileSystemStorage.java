@@ -289,6 +289,12 @@ public class FileSystemStorage implements FoldersStorage, JournalsStorage, Snaps
         }
     }
 
+    /**
+     * 获取日记
+     * @param txs
+     * @param evns
+     * @return
+     */
     protected JournalStore[] getJournalStores(List<VersionedFile> txs, List<VersionedFile> evns) {
         LOG.debug("evns: " + evns.size() + ", txs: " + txs.size());
         List<JournalStore> collect = txs.stream().map(tx -> evns.stream()

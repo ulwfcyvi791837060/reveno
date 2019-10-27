@@ -72,7 +72,7 @@ public class RestorerEventBus implements RestoreableEventBus {
             maxTransactionId = lastTransactionId;
             return;
         }
-
+        //故障
         if ((event.flag() & EventPublisher.ASYNC_ERROR_FLAG) == EventPublisher.ASYNC_ERROR_FLAG) {
             log.info("Failed transaction event [{}]", event.transactionId());
             unpublishedEvents.add(new LongRange(event.transactionId()));

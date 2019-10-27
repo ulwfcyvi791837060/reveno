@@ -24,6 +24,9 @@ public class WorkflowEngine {
     protected volatile boolean started = false;
     protected ModelType modelType;
     protected WorkflowContext context;
+    /**
+     * 管道处理器故障转移包装器
+     */
     protected PipeProcessorFailoverWrapper inputProcessor;
 
     public WorkflowEngine(TransactionPipeProcessor<ProcessorContext> inputProcessor, WorkflowContext context,
@@ -39,6 +42,7 @@ public class WorkflowEngine {
         if (context.failoverManager().isSingleNode()) {
             pipe = inputProcessor;
         } else {
+            // 如果是集群 需要复制
             pipe = inputProcessor.pipe(handlers::replication);
         }
         buildPipe(pipe);
@@ -154,6 +158,10 @@ public class WorkflowEngine {
             return pipe.pipe(handler);
         }
 
+        /**
+         * 执行故障转移
+         * @param commands
+         */
         public void executeFailover(List<Object> commands) {
             if (!failoverManager().isMaster()) {
                 pipe.process((c, f) -> {

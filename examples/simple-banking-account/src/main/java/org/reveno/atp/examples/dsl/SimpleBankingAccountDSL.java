@@ -33,6 +33,8 @@ public class SimpleBankingAccountDSL {
     }
 
     public static void main(String[] args) {
+        args = new String[1];
+        args[0] ="channel_SimpleBankingAccountDSL";
         Reveno reveno = init(args[0]);
         reveno.startup();
 

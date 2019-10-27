@@ -107,6 +107,12 @@ public interface Reveno {
      */
     <R> CompletableFuture<Result<R>> executeCommand(Object command);
 
+    /**
+     * 执行同步
+     * @param command
+     * @param <R>
+     * @return
+     */
     <R> R executeSync(Object command);
 
     /**

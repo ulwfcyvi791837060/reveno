@@ -1,0 +1,75 @@
+"C:\Program Files\Java\jdk1.8.0_181\bin\java.exe" -agentlib:jdwp=transport=dt_socket,address=127.0.0.1:50943,suspend=y,server=n -javaagent:C:\Users\Administrator\.IntelliJIdea2018.3\system\groovyHotSwap\gragent.jar -javaagent:C:\Users\Administrator\.IntelliJIdea2018.3\system\captureAgent\debugger-agent.jar -Dfile.encoding=UTF-8 -classpath "C:\Program Files\Java\jdk1.8.0_181\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\deploy.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\ext\access-bridge-64.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\ext\cldrdata.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\ext\dnsns.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\ext\jaccess.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\ext\jfxrt.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\ext\localedata.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\ext\nashorn.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\ext\sunec.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\ext\sunjce_provider.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\ext\sunmscapi.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\ext\sunpkcs11.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\ext\zipfs.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\javaws.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\jfxswt.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\management-agent.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\plugin.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\rt.jar;D:\workspace_api\reveno\examples\simple-banking-account\out\production\classes;D:\workspace_api\reveno\reveno-core\out\production\classes;D:\workspace_api\reveno\reveno-core\out\production\resources;C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\org.slf4j\slf4j-log4j12\1.7.26\12f5c685b71c3027fd28bcf90528ec4ec74bf818\slf4j-log4j12-1.7.26.jar;C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\org.slf4j\slf4j-api\1.7.26\77100a62c2e6f04b53977b9f541044d7d722693d\slf4j-api-1.7.26.jar;D:\maven\LocalUl\log4j\log4j\1.2.17\log4j-1.2.17.jar;C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\it.unimi.dsi\fastutil\8.2.2\975aab42e32a96ecb9696971a87c87a049055452\fastutil-8.2.2.jar;D:\maven\LocalUl\com\lmax\disruptor\3.4.2\disruptor-3.4.2.jar;C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\io.protostuff\protostuff-uberjar\1.5.9\861b9b9a7c33abfedfc1741f4b78e99b180bbe82\protostuff-uberjar-1.5.9.jar;C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\io.netty\netty-buffer\4.1.34.Final\8afc2027eadc7848127553ebb490ea0e2b199d4e\netty-buffer-4.1.34.Final.jar;C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\net.bytebuddy\byte-buddy\1.9.12\39050dbbd36862ea87eb9a64158854b04619ccd6\byte-buddy-1.9.12.jar;C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.github.stephenc.high-scale-lib\high-scale-lib\1.1.4\93865cc75c598f67a7a98e259b2ecfceec9a132\high-scale-lib-1.1.4.jar;C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\io.protostuff\protostuff-core\1.5.9\baf9e29cc554b1ed905bfb9428b7566efb2cc9fd\protostuff-core-1.5.9.jar;C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\io.protostuff\protostuff-runtime\1.5.9\6809a6d5fa97491627d701d97c0319f1acca418b\protostuff-runtime-1.5.9.jar;C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\io.protostuff\protostuff-collectionschema\1.5.9\64de0c026d4e7da2110ac6af4ecfd5cf4c4d2e92\protostuff-collectionschema-1.5.9.jar;C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\io.protostuff\protostuff-api\1.5.9\91f8cefbb3567b6d07c5478284c64d392aa477da\protostuff-api-1.5.9.jar;C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\io.netty\netty-common\4.1.34.Final\2dffa21967d36cae446b6905bd5fb39750fcba43\netty-common-4.1.34.Final.jar;C:\Program Files\JetBrains\IntelliJ IDEA 2018.3.2\lib\idea_rt.jar" org.reveno.atp.examples.SimpleBankingAccount
+Connected to the target VM, address: '127.0.0.1:50943', transport: 'socket'
+2019/10/26 12:16:56.650 |main| INFO [Engine:141] Engine startup initiated.
+2019/10/26 12:16:56.970 |main| INFO [DefaultJournaler:64] Rolling to tmp_evn-2019_10_26-00000000000000000002-00000000000000000000
+2019/10/26 12:16:56.971 |main| INFO [DefaultJournaler:40] Started writing to tmp_evn-2019_10_26-00000000000000000002-00000000000000000000
+2019/10/26 12:16:56.973 |main| INFO [DefaultJournaler:64] Rolling to tmp_tx-2019_10_26-00000000000000000002-00000000000000000000
+2019/10/26 12:16:56.974 |main| INFO [DefaultJournaler:40] Started writing to tmp_tx-2019_10_26-00000000000000000002-00000000000000000000
+2019/10/26 12:16:57.077 |main| INFO [DisruptorPipeProcessor:53] Started.
+2019/10/26 12:16:57.112 |main| INFO [DisruptorPipeProcessor:53] Started.
+2019/10/26 12:16:57.168 |main| INFO [ChannelReader:48] Processing channel: evn-2019_10_26-00000000000000000001-00000000000000000000
+2019/10/26 12:16:57.170 |main| INFO [FileChannel:60] Closing channel ulwfcyvi\evn-2019_10_26-00000000000000000001-00000000000000000000
+2019/10/26 12:16:57.193 |main| INFO [ChannelReader:48] Processing channel: tx-2019_10_26-00000000000000000001-00000000000000000000
+2019/10/26 12:16:57.242 |main| INFO [FileChannel:60] Closing channel ulwfcyvi\tx-2019_10_26-00000000000000000001-00000000000000000000
+2019/10/26 12:16:57.384 |main| INFO [JournalsManager:74] Rolling to next store.
+2019/10/26 12:16:57.393 |main| INFO [DefaultJournaler:49] Stopped writing to tmp_evn-2019_10_26-00000000000000000002-00000000000000000000
+2019/10/26 12:16:57.393 |main| INFO [FileChannel:60] Closing channel ulwfcyvi\tmp_evn-2019_10_26-00000000000000000002-00000000000000000000
+2019/10/26 12:16:57.393 |main| INFO [FileChannel:60] Closing channel ulwfcyvi\tmp_evn-2019_10_26-00000000000000000002-00000000000000000000
+2019/10/26 12:16:57.394 |main| INFO [DefaultJournaler:49] Stopped writing to tmp_tx-2019_10_26-00000000000000000002-00000000000000000000
+2019/10/26 12:16:57.396 |main| INFO [FileChannel:60] Closing channel ulwfcyvi\tmp_tx-2019_10_26-00000000000000000002-00000000000000000000
+2019/10/26 12:16:57.397 |main| INFO [FileChannel:60] Closing channel ulwfcyvi\tmp_tx-2019_10_26-00000000000000000002-00000000000000000000
+2019/10/26 12:16:57.427 |main| INFO [DefaultJournaler:64] Rolling to evn-2019_10_26-00000000000000000002-00000000000000000002
+2019/10/26 12:16:57.428 |main| INFO [DefaultJournaler:40] Started writing to evn-2019_10_26-00000000000000000002-00000000000000000002
+2019/10/26 12:16:57.429 |main| INFO [DefaultJournaler:64] Rolling to tx-2019_10_26-00000000000000000002-00000000000000000002
+2019/10/26 12:16:57.429 |main| INFO [Engine:160] Engine is started.
+2019/10/26 12:16:57.508 |main| INFO [SimpleBankingAccount:49] Balance of Account 2: 8822
+2019/10/26 12:16:57.508 |main| INFO [Engine:167] Shutting down engine.
+2019/10/26 12:16:57.509 |main| INFO [DisruptorPipeProcessor:63] Stopped.
+2019/10/26 12:16:57.513 |main| INFO [DisruptorPipeProcessor:63] Stopped.
+2019/10/26 12:16:57.517 |main| INFO [DefaultJournaler:49] Stopped writing to tx-2019_10_26-00000000000000000002-00000000000000000002
+2019/10/26 12:16:57.518 |main| INFO [FileChannel:60] Closing channel ulwfcyvi\tx-2019_10_26-00000000000000000002-00000000000000000002
+2019/10/26 12:16:57.520 |main| INFO [DefaultJournaler:49] Stopped writing to evn-2019_10_26-00000000000000000002-00000000000000000002
+2019/10/26 12:16:57.521 |main| INFO [FileChannel:60] Closing channel ulwfcyvi\evn-2019_10_26-00000000000000000002-00000000000000000002
+2019/10/26 12:16:57.521 |main| INFO [FileChannel:60] Closing channel ulwfcyvi\evn-2019_10_26-00000000000000000002-00000000000000000002
+2019/10/26 12:16:57.522 |main| INFO [Engine:191] Engine was stopped.
+2019/10/26 12:16:57.531 |main| INFO [Engine:141] Engine startup initiated.
+2019/10/26 12:16:57.541 |main| INFO [DefaultJournaler:64] Rolling to tmp_evn-2019_10_26-00000000000000000003-00000000000000000000
+2019/10/26 12:16:57.542 |main| INFO [DefaultJournaler:40] Started writing to tmp_evn-2019_10_26-00000000000000000003-00000000000000000000
+2019/10/26 12:16:57.543 |main| INFO [DefaultJournaler:64] Rolling to tmp_tx-2019_10_26-00000000000000000003-00000000000000000000
+2019/10/26 12:16:57.543 |main| INFO [DefaultJournaler:40] Started writing to tmp_tx-2019_10_26-00000000000000000003-00000000000000000000
+2019/10/26 12:16:57.570 |main| INFO [DisruptorPipeProcessor:53] Started.
+2019/10/26 12:16:57.574 |main| INFO [DisruptorPipeProcessor:53] Started.
+2019/10/26 12:16:57.588 |main| INFO [ChannelReader:48] Processing channel: evn-2019_10_26-00000000000000000001-00000000000000000000
+2019/10/26 12:16:57.588 |main| INFO [FileChannel:60] Closing channel ulwfcyvi\evn-2019_10_26-00000000000000000001-00000000000000000000
+2019/10/26 12:16:57.588 |main| INFO [ChannelReader:48] Processing channel: evn-2019_10_26-00000000000000000002-00000000000000000002
+2019/10/26 12:16:57.589 |main| INFO [FileChannel:60] Closing channel ulwfcyvi\evn-2019_10_26-00000000000000000002-00000000000000000002
+2019/10/26 12:16:57.600 |main| INFO [ChannelReader:48] Processing channel: tx-2019_10_26-00000000000000000001-00000000000000000000
+2019/10/26 12:16:57.604 |main| INFO [FileChannel:60] Closing channel ulwfcyvi\tx-2019_10_26-00000000000000000001-00000000000000000000
+2019/10/26 12:16:57.604 |main| INFO [ChannelReader:48] Processing channel: tx-2019_10_26-00000000000000000002-00000000000000000002
+2019/10/26 12:16:57.605 |main| INFO [FileChannel:60] Closing channel ulwfcyvi\tx-2019_10_26-00000000000000000002-00000000000000000002
+2019/10/26 12:16:57.793 |main| INFO [JournalsManager:74] Rolling to next store.
+2019/10/26 12:16:57.802 |main| INFO [DefaultJournaler:49] Stopped writing to tmp_evn-2019_10_26-00000000000000000003-00000000000000000000
+2019/10/26 12:16:57.802 |main| INFO [FileChannel:60] Closing channel ulwfcyvi\tmp_evn-2019_10_26-00000000000000000003-00000000000000000000
+2019/10/26 12:16:57.803 |main| INFO [FileChannel:60] Closing channel ulwfcyvi\tmp_evn-2019_10_26-00000000000000000003-00000000000000000000
+2019/10/26 12:16:57.803 |main| INFO [DefaultJournaler:49] Stopped writing to tmp_tx-2019_10_26-00000000000000000003-00000000000000000000
+2019/10/26 12:16:57.803 |main| INFO [FileChannel:60] Closing channel ulwfcyvi\tmp_tx-2019_10_26-00000000000000000003-00000000000000000000
+2019/10/26 12:16:57.803 |main| INFO [FileChannel:60] Closing channel ulwfcyvi\tmp_tx-2019_10_26-00000000000000000003-00000000000000000000
+2019/10/26 12:16:57.806 |main| INFO [DefaultJournaler:64] Rolling to evn-2019_10_26-00000000000000000003-00000000000000000004
+2019/10/26 12:16:57.806 |main| INFO [DefaultJournaler:40] Started writing to evn-2019_10_26-00000000000000000003-00000000000000000004
+2019/10/26 12:16:57.807 |main| INFO [DefaultJournaler:64] Rolling to tx-2019_10_26-00000000000000000003-00000000000000000004
+2019/10/26 12:16:57.808 |main| INFO [DefaultJournaler:40] Started writing to tx-2019_10_26-00000000000000000003-00000000000000000004
+2019/10/26 12:16:57.808 |main| INFO [Engine:160] Engine is started.
+2019/10/26 12:16:57.808 |main| INFO [SimpleBankingAccount:49] Balance of Account 2: 8822
+2019/10/26 12:16:57.808 |main| INFO [Engine:167] Shutting down engine.
+2019/10/26 12:16:57.808 |main| INFO [DisruptorPipeProcessor:63] Stopped.
+2019/10/26 12:16:57.812 |main| INFO [DisruptorPipeProcessor:63] Stopped.
+2019/10/26 12:16:57.813 |main| INFO [DefaultJournaler:49] Stopped writing to tx-2019_10_26-00000000000000000003-00000000000000000004
+2019/10/26 12:16:57.813 |main| INFO [FileChannel:60] Closing channel ulwfcyvi\tx-2019_10_26-00000000000000000003-00000000000000000004
+2019/10/26 12:16:57.814 |main| INFO [FileChannel:60] Closing channel ulwfcyvi\tx-2019_10_26-00000000000000000003-00000000000000000004
+2019/10/26 12:16:57.814 |main| INFO [DefaultJournaler:49] Stopped writing to evn-2019_10_26-00000000000000000003-00000000000000000004
+2019/10/26 12:16:57.814 |main| INFO [FileChannel:60] Closing channel ulwfcyvi\evn-2019_10_26-00000000000000000003-00000000000000000004
+2019/10/26 12:16:57.814 |main| INFO [FileChannel:60] Closing channel ulwfcyvi\evn-2019_10_26-00000000000000000003-00000000000000000004
+2019/10/26 12:16:57.815 |main| INFO [Engine:191] Engine was stopped.
+Disconnected from the target VM, address: '127.0.0.1:50943', transport: 'socket'
+
+Process finished with exit code 0

@@ -70,6 +70,7 @@ public class EventPublisher {
         this.pipeProcessor = pipeProcessor;
         this.context = context;
 
+        //handler 添加到管子里排队 排队处理完再处理日志
         this.pipeProcessor.pipe(this::publish).then(this::journal);
     }
 

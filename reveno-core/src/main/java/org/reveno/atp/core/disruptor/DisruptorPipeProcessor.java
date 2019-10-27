@@ -41,13 +41,16 @@ public abstract class DisruptorPipeProcessor<T extends Destroyable> implements P
     @Override
     public void start() {
         if (isStarted) throw new IllegalStateException("The Pipe Processor is already started.");
-
+        //new Disruptor<
         disruptor = new Disruptor(eventFactory(), bufferSize(), threadFactory(),
                 singleProducer() ? ProducerType.SINGLE : ProducerType.MULTI,
                 createWaitStrategy());
 
+        //附加处理程序
         attachHandlers(disruptor);
+        //启动拦截器
         startupInterceptor();
+
         disruptor.start();
 
         log.info("Started.");
@@ -77,10 +80,17 @@ public abstract class DisruptorPipeProcessor<T extends Destroyable> implements P
         return isStarted;
     }
 
+    /**
+     * handler 添加到管子里排队
+     * @param handler
+     * @return
+     */
     @Override
     public PipeProcessor<T> pipe(ProcessorHandler<T>... handler) {
-        if (!isStarted)
+        //如果没有启动
+        if (!isStarted) {
             handlers.add(handler);
+        }
         return this;
     }
 
@@ -90,6 +100,7 @@ public abstract class DisruptorPipeProcessor<T extends Destroyable> implements P
             throw new RuntimeException("Pipe Processor must be started!");
 
         final CompletableFuture<R> f = new CompletableFuture<R>();
+        //发布事件
         disruptor.publishEvent((e, s) -> consumer.accept(e, f));
         return f;
     }
@@ -109,14 +120,19 @@ public abstract class DisruptorPipeProcessor<T extends Destroyable> implements P
         return null;
     }
 
+    /**
+     * 附加处理程序
+     * @param disruptor
+     */
     protected void attachHandlers(Disruptor<T> disruptor) {
         List<EventHandler<T>[]> disruptorHandlers = handlers.stream()
                 .<EventHandler<T>[]>map(this::convert)
                 .collect(Collectors.toList());
 
         EventHandlerGroup<T> h = disruptor.handleEventsWith(disruptorHandlers.get(0));
-        for (int i = 1; i < disruptorHandlers.size(); i++)
+        for (int i = 1; i < disruptorHandlers.size(); i++) {
             h = h.then(disruptorHandlers.get(i));
+        }
     }
 
     protected EventHandler<T>[] convert(ProcessorHandler<T>[] h) {

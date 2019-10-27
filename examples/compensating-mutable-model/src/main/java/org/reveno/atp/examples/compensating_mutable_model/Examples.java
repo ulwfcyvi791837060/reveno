@@ -12,6 +12,8 @@ public class Examples {
     protected static final Logger LOG = LoggerFactory.getLogger(Examples.class);
 
     public static void main(String[] args) throws Exception {
+        args = new String[1];
+        args[0] ="channel_Examples";
         Reveno reveno = new Engine(args[0]);
         reveno.config().mutableModel();
         reveno.config().mutableModelFailover(Configuration.MutableModelFailover.COMPENSATING_ACTIONS);

@@ -34,6 +34,9 @@ public interface Configuration {
 
     enum ModelType {MUTABLE, IMMUTABLE}
 
+    /**
+     * 可变模式故障转移 快照 与 补偿
+     */
     enum MutableModelFailover {SNAPSHOTS, COMPENSATING_ACTIONS}
 
     enum CpuConsumption {LOW, NORMAL, HIGH, PHASED}

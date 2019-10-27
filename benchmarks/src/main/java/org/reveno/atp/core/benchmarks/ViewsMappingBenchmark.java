@@ -65,6 +65,7 @@ public class ViewsMappingBenchmark {
                 .transactionsManager(transactionsManager).commandsManager(commandsManager)
                 .viewsProcessor(new ViewsProcessor(viewsManager, new ViewsDefaultStorage(16, 0.75f)))
                 .transactionCommitBuilder(new TransactionCommitInfoImpl.PojoBuilder())
+                //非集群式故障转移管理器
                 .failoverManager(new UnclusteredFailoverManager())
                 .interceptorCollection(new InterceptorCollection());
         workflowEngine = new BenchmarkWorkflowEngine(

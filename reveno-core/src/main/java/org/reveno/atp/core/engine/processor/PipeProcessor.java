@@ -20,6 +20,11 @@ public interface PipeProcessor<T extends Destroyable> {
 
     boolean isStarted();
 
+    /**
+     * handler 添加到管子里排队
+     * @param handler
+     * @return
+     */
     PipeProcessor<T> pipe(ProcessorHandler<T>... handler);
 
     <R> CompletableFuture<R> process(BiConsumer<T, CompletableFuture<R>> consumer);

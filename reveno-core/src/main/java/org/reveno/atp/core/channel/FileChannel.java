@@ -58,6 +58,7 @@ public class FileChannel implements Channel {
     public void close() {
         try {
             log.info("Closing channel " + file);
+            //[FileChannel:60] Closing channel ulwfcyvi\tx-2019_10_26-00000000000000000002-00000000000000000002
             if (channel().isOpen() && writer.isInitialized()) {
                 if (channelOptions == ChannelOptions.BUFFERING_MMAP_OS) {
                     ((MappedByteBuffer) buffer).force();

@@ -13,6 +13,7 @@ public class RevenoConfiguration implements Configuration {
     protected ModelType modelType = ModelType.IMMUTABLE;
     protected int mapCapacity = 524288;
     protected float mapLoadFactor = 0.75f;
+    //可变模型故障转移
     protected MutableModelFailover mutableModelFailover = MutableModelFailover.SNAPSHOTS;
 
     @Override

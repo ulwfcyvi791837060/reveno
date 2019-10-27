@@ -70,6 +70,9 @@ public class Engine implements Reveno {
     protected ViewsProcessor viewsProcessor;
     protected WorkflowEngine workflowEngine;
     protected EventPublisher eventPublisher;
+    /**
+     * 事务管道处理器
+     */
     protected TransactionPipeProcessor<ProcessorContext> processor;
     protected PipeProcessor<Event> eventProcessor;
     protected JournalsManager journalsManager;
@@ -93,6 +96,7 @@ public class Engine implements Reveno {
     protected RevenoConfiguration config = new RevenoConfiguration();
     protected final TxRepositoryFactory factory = repositoryData -> {
         final TxRepository repository = createRepository();
+        //ul if (repositoryData != null && repositoryData.getData()!=null ) {
         if (repositoryData != null) {
             repository.load(repositoryData.getData());
         }
@@ -150,6 +154,7 @@ public class Engine implements Reveno {
         eventPublisher.getPipe().start();
         workflowEngine.init();
         viewsProcessor.process(repository);
+        //恢复
         workflowEngine.setLastTransactionId(restorer.restore(journalVersionAfterSnapshot(), repository).getLastTransactionId());
 
         workflowEngine.getPipe().sync();
@@ -284,10 +289,17 @@ public class Engine implements Reveno {
         return config;
     }
 
+    /**
+     * 执行命令
+     * @param command to be executed.
+     * @param <R>
+     * @return
+     */
     @Override
     public <R> CompletableFuture<Result<R>> executeCommand(Object command) {
+        //检查是否已经启动
         checkIsStarted();
-
+        //得到管道去执行
         return workflowEngine.getPipe().execute(command);
     }
 
@@ -322,6 +334,12 @@ public class Engine implements Reveno {
         }
     }
 
+    /**
+     * 执行同步
+     * @param command
+     * @param <R>
+     * @return
+     */
     @SuppressWarnings("unchecked")
     @Override
     public <R> R executeSync(Object command) {
@@ -403,12 +421,17 @@ public class Engine implements Reveno {
         repository = factory.create(loadLastSnapshot());
         viewsStorage = new ViewsDefaultStorage(config.mapCapacity(), config.mapLoadFactor());
         viewsProcessor = new ViewsProcessor(viewsManager, viewsStorage);
+        /**
+         * 事务管道处理器
+         */
         processor = new DisruptorTransactionPipeProcessor(txBuilder, config.cpuConsumption(), config.revenoDisruptor().bufferSize(), executor);
         eventProcessor = new DisruptorEventPipeProcessor(CpuConsumption.NORMAL, config.revenoDisruptor().bufferSize(), eventExecutor);
         journalsManager = new JournalsManager(journalsStorage, config.revenoJournaling());
 
         EngineEventsContext eventsContext = new EngineEventsContext().serializer(eventsSerializer)
                 .eventsCommitBuilder(eventBuilder).eventsJournaler(journalsManager.getEventsJournaler()).manager(eventsManager);
+
+        //添加到管子里排队 排队处理完再处理日志
         eventPublisher = new EventPublisher(eventProcessor, eventsContext);
 
         workflowContext = new EngineWorkflowContext().serializers(serializer).repository(repository).classLoader(classLoader)
@@ -420,6 +443,10 @@ public class Engine implements Reveno {
         restorer = new DefaultSystemStateRestorer(journalsStorage, workflowContext, eventsContext, workflowEngine);
     }
 
+    /**
+     * 快照后的日志版本
+     * @return
+     */
     protected long journalVersionAfterSnapshot() {
         if (restoreWith != null) {
             return restoreWith.lastJournalVersionSnapshotted();
@@ -431,6 +458,10 @@ public class Engine implements Reveno {
                 .orElse(0L);
     }
 
+    /**
+     * 加载最新快照
+     * @return 储存库数据
+     */
     protected RepositoryData loadLastSnapshot() {
         if (restoreWith != null && restoreWith.hasAny()) {
             return restoreWith.load();
@@ -452,9 +483,9 @@ public class Engine implements Reveno {
 
     protected TxRepository createRepository() {
         switch (config.modelType()) {
-            case IMMUTABLE:
+            case IMMUTABLE: //不可变的
                 return new SnapshotBasedModelRepository(repository());
-            case MUTABLE:
+            case MUTABLE: //可变的
                 return new MutableModelRepository(repository(), new SerializersChain(classLoader), classLoader);
         }
         return null;

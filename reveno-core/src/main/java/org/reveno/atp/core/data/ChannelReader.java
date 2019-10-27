@@ -46,6 +46,7 @@ public class ChannelReader implements Iterable<Buffer> {
                     if (channels.hasNext()) {
                         channel = channels.next();
                         log.info("Processing channel: " + channel);
+                        //[ChannelReader:48] Processing channel: tx-2019_10_26-00000000000000000002-00000000000000000002
                     } else {
                         return null;
                     }

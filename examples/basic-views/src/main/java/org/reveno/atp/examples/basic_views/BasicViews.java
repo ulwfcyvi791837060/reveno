@@ -19,6 +19,8 @@ public class BasicViews {
     protected static final Logger LOG = LoggerFactory.getLogger(BasicViews.class);
 
     public static void main(String[] args) throws Exception {
+        args = new String[1];
+        args[0] ="channel_BasicViews";
         Reveno reveno = new Engine(args[0]);
         reveno.config().mutableModel();
 
